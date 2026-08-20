@@ -9,16 +9,16 @@
 
 <body>
     qual o sabor da pizza<br><input type="text" id="ipt_sabor"><br>
-    Quantas pessoas vão pagar <br><input type="text" id="ipt_n1"><br>
-    Quanto custa a pizza <br><input type="text" id="ipt_n2"><br>
+    Quantas pessoas vão pagar <br><input type="text" id="ipt_pessoas"><br>
+    Quanto custa a pizza <br><input type="text" id="ipt_preco"><br>
     <button onclick="pagar()">Ver valor por amigo</button><br>
 
     <div id="div_exibir"></div>
 </body>
 <script>
         function pagar() {
-            let n1 = Number(ipt_n1.value);
-            let n2 = Number(ipt_n2.value);
+            let pessoas = Number(ipt_n1.value);
+            let preco = Number(ipt_n2.value);
             let resultado = n2 / (n1 * 1.1);
             div_exibir.innerHTML = `  Cada amigo vai colaborar com R$ ${resultado} para a pizza de ${ipt_sabor.value}.`;
         }
