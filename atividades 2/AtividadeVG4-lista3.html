@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de TVM</title>
+</head>
+
+<body>
+    Quantidade de dias em operação:
+    <input type="text" id="ipt_dias"><br>
+
+    <button onclick="ProcessarDias()">Processar DIAS</button><br>
+    <button onclick="StopOperacao()">Stop Operação</button><br>
+    <button onclick="Reiniciar()">Reiniciar Processo</button><br>
+
+    <div id="div_exibir"></div>
+</body>
+
+<script>
+    let ax_tvm = 1000;
+
+    function ProcessarDias() {
+        let dias = Number(ipt_dias.value);
+
+        let tvm_anterior = ax_tvm;
+        let horas = dias * 24;
+
+        ax_tvm = ax_tvm - horas;
+
+        div_exibir.innerHTML += `
+            O TVM anterior era de ${tvm_anterior} horas e após ${dias} dias de operação o TVM passou para ${ax_tvm} horas<br><br>
+        `;
+    }
+
+    function StopOperacao() {
+        let tvm_anterior = ax_tvm;
+
+        ax_tvm = ax_tvm - 100;
+
+        div_exibir.innerHTML += `
+            O TVM anterior era de ${tvm_anterior} horas, após o Stop de operação o TVM passou para ${ax_tvm} horas<br><br>
+        `;
+    }
+
+    function Reiniciar() {
+        let tvm_anterior = ax_tvm;
+
+        ax_tvm = 1000;
+
+        div_exibir.innerHTML = `
+            Ainda existia ${tvm_anterior} horas, com o reinicio do processo, o TVM passou para 1000 horas.
+        `;
+    }
+</script>
+
+</html>
