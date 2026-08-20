@@ -1,0 +1,37 @@
+head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Eleição</title>
+</head>
+
+<body>
+    Quantidade de votos do Candidato A: <input type="text" id="ipt_a"><br>
+    Quantidade de votos do Candidato B: <input type="text" id="ipt_b"><br>
+    Quantidade de votos brancos: <input type="text" id="ipt_brancos"><br>
+    Quantidade de votos nulos: <input type="text" id="ipt_nulos"><br>
+    <button onclick="resultado()">Resultado da Eleição</button><br>
+    <div id="div_exibir"></div>
+  </body>
+<script>
+    function resultado() {
+        let candidatoA = Number(ipt_a.value);
+        let candidatoB = Number(ipt_b.value);
+        let brancos = Number(ipt_brancos.value);
+        let nulos = Number(ipt_nulos.value);]
+        let invalidos = brancos + nulos;
+        let total = candidatoA + candidatoB + invalidos;
+    
+        let percentualA = (candidatoA / total * 100).toFixed(2);
+        let percentualB = (candidatoB / total * 100).toFixed(2);
+        let percentualInvalidos = (invalidos / total * 100).toFixed(2);
+
+        div_exibir.innerHTML = `
+            Total de votos: ${total}<br><br>
+            Candidato A: ${percentualA}% (${candidatoA} votos)<br>
+            Candidato B: ${percentualB}% (${candidatoB} votos)<br>
+            Inválidos: ${percentualInvalidos}% (${invalidos} votos)
+        `;
+      }
+</script>
+
+</html>
