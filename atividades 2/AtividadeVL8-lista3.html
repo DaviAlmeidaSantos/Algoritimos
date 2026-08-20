@@ -17,9 +17,9 @@
 </body>
 <script>
     function VT() {
-        let passagem = Number(ipt_n1.value);
-        let viagem = Number(ipt_n2.value);
-        let distancia = Number(ipt_n3.value);
+        let passagem = Number(ipt_passagem.value);
+        let viagem = Number(ipt_viagem.value);
+        let distancia = Number(ipt_distancia.value);
         let resultado = ((viagen / 10) * distancia * 0.75) + (viagem - viagem / 10) * passagem;
         div_exibir.innerHTML = `você vai gastar  R$${resultado} por mês com transporte`;
     }
