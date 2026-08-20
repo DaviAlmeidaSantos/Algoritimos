@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média SPTech</title>
+</head>
+
+<body>
+    Qual o nome do aluno? <input type="text" id="ipt_nome"><br>
+    Qual a nota da avaliação continuada? <input type="text" id="ipt_continuada"><br>
+    Qual a nota da avaliação semestral? <input type="text" id="ipt_semestral"><br>
+    <button onclick="calcular()">Calcular média</button><br>
+    <div id="div_exibir"></div>
+</body>
+
+    <script>
+        function calcular() {
+            let continuada = Number(ipt_continuada.value);
+            let semestral = Number(ipt_semestral.value);
+            let media = (continuada * 0.4) + (semestral * 0.6);
+            div_exibir.innerHTML = `A média de ${ipt_nome.value} será de ${media}.`;
+        }
+    </script>
+</html>
