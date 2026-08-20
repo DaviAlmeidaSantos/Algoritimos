@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro</title>
+</head>
+
+<body>
+    Valor recebido com venda de peças:
+    <input type="text" id="ipt_pecas"><br>
+
+    Valor recebido com venda de serviços:
+    <input type="text" id="ipt_servicos"><br>
+
+    Percentual de imposto:
+    <input type="text" id="ipt_imposto"><br>
+
+    Valor dos gastos realizados no mês:
+    <input type="text" id="ipt_gastos"><br>
+
+    <button onclick="Acumular()">Acumular</button><br>
+
+    <div id="div_exibir"></div>
+</body>
+
+<script>
+    let ax_mes = 0;
+    let ax_acumulado = 0;
+
+    function Acumular() {
+        let pecas = Number(ipt_pecas.value);
+        let servicos = Number(ipt_servicos.value);
+        let imposto = Number(ipt_imposto.value);
+        let gastos = Number(ipt_gastos.value);
+
+        let total = pecas + servicos;
+        let valor_imposto = total * imposto / 100;
+        let saldo = total - gastos - valor_imposto;
+
+        ax_mes = ax_mes + 1;
+        ax_acumulado = ax_acumulado + saldo;
+
+        div_exibir.innerHTML += `
+            Resumo do mês ${ax_mes}<br>
+            Total recebido = R$ ${total.toFixed(2)}<br>
+            Valor do Imposto = R$ ${valor_imposto.toFixed(2)}<br>
+            Saldo Final de R$ ${saldo.toFixed(2)}<br>
+            Acumulado até o Momento = R$ ${ax_acumulado.toFixed(2)}<br><br>
+        `;
+    }
+</script>
+
+</html>
