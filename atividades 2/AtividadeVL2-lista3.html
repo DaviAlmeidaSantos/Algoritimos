@@ -22,14 +22,23 @@
         let n1 = Number(ipt_n1.value);
         let n2 = Number(ipt_n2.value);
         let resultado = n1 / n2;
-        div_exibir.innerHTML = `O Quociente entre ${n1} e ${n2} é: ${resultado}`;
+        div_exibir.innerHTML = `
+        O Quociente entre 
+        ${n1} 
+        e ${n2} 
+        é: ${resultado}
+        `;
     }
 
     function Resto() {
         let n1 = Number(ipt_n1.value);
         let n2 = Number(ipt_n2.value);
         let resultado = n1 % n2;
-        div_exibir.innerHTML = `O Resto entre ${n1} e ${n2} é: ${resultado}`;
+        div_exibir.innerHTML = `
+        O Resto entre ${n1}
+        e ${n2} 
+        é: ${resultado}
+        `;
     }
 
     function Completo() {
@@ -37,7 +46,12 @@
         let n2 = Number(ipt_n2.value);
         let resultado1 = n1 / n2;
         let resultado2 = n1 % n2;
-        div_exibir.innerHTML = `Entre ${n1} e ${n2} <br> O Quociente  é: ${resultado1} <br> E Resto é ${resultado2}`;
+        div_exibir.innerHTML = `
+        Entre ${n1} 
+        e ${n2} <br> 
+        O Quociente  é: ${resultado1} <br>
+        E Resto é ${resultado2}
+        `;
 
     }</script>
 
