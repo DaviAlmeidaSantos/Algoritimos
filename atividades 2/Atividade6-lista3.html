@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbie brabuleta</title>
+</head>
+
+<body>
+    Quantos dinheiros você trouxe <br><input type="text" id="ipt_n1" /><br>
+    quanto 1 do seu dinheiro vale em reais <br><input type="text" id="ipt_n2" /><br>
+    <button onclick="Cambio()">fazer o cambio</button><br>
+
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function Cambio() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n2 * n1 - 5.5;
+        div_exibir.innerHTML = `Ao converter seus B-Dollars, o dinheiro disponível será: R$ ${resultado.toFixed(2)}`;
+    }
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo para aposentar</title>
+</head>
+
+<body>
+    Insira a idade atual de quem vai se aposentar <br><input type="text" id="ipt_n1" /><br>
+    <button onclick="homen()">Quanto tempo falta se for homen</button><br>
+    <button onclick="mulher()">Quanto tempo falta se for mulher</button><br>
+
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function homen() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(70);
+        let resultado = n2 - n1;
+        div_exibir.innerHTML = `Ele podera se aposentar em ${resultado} anos`;
+    }
+
+    function mulher() {
+        let n1 = Number(ipt_n1.value);
+        let resultado = 60 - n1;
+        div_exibir.innerHTML = `Ela podera se aposentar em ${resultado} anos`;
+    }
+</script>
+
+</html>

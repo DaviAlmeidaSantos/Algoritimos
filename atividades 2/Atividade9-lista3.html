@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    Qual o seu nome <input type="text" id="ipt_n1" />
+    Nota 1 <input type="text" id="ipt_n2" />
+    Nota 2 <input type="text" id="ipt_n3" />
+    Nota 3 <input type="text" id="ipt_n4" />
+
+    <button onclick="Nota()">Mostrar nota</button>
+
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function Nota() {
+        let n1 = Number(ipt_n2.value);
+        let n2 = Number(ipt_n3.value);
+        let n3 = Number(ipt_n4.value);
+        let nome = (ipt_n1.value);
+        let resultado1 = n1 + n3 + n2;
+        let resultado2 = (n1 + n3 + n2) / 3;
+        div_exibir.innerHTML = `A nota total do ser vivo denominado como ${nome} é ${resultado1} <br> e a media é: ${resultado2}`;
+    }</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <input type="text" id="ipt_n1" />
+    <input type="text" id="ipt_n2" />
+
+    <button onclick="Quociente()">Quociente</button>
+    <button onclick="Resto()">Resto</button>
+    <button onclick="Completo()">Completo</button>
+
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function Quociente() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 / n2;
+        div_exibir.innerHTML = `O Quociente entre ${n1} e ${n2} é: ${resultado}`;
+    }
+
+    function Resto() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 % n2;
+        div_exibir.innerHTML = `O Resto entre ${n1} e ${n2} é: ${resultado}`;
+    }
+
+    function Completo() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado1 = n1 / n2;
+        let resultado2 = n1 % n2;
+        div_exibir.innerHTML = `Entre ${n1} e ${n2} <br> O Quociente  é: ${resultado1} <br> E Resto é ${resultado2}`;
+
+    }</script>
+
+</html>

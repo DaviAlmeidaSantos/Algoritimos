@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMEHAMEHAAAAAAAAAAAAAAAAA</title>
+</head>
+
+<body>
+    Defina o Ki Base <br><input type="text" id="ipt_n1" /><br>
+    <button onclick="SSJ()">Tranformar em Super Saiyajin</button><br>
+    <button onclick="SSJ2()">Tranformar em Super Saiyajin 2</button><br>
+    <button onclick="SSJ3()">Tranformar em Super Saiyajin 3</button><br>
+
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function SSJ() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(50);
+        let resultado = n2 * n1;
+        div_exibir.innerHTML = `Após se transformar no Super Saiyajin, O Poder dele se torna ${resultado.toFixed(2)}`;
+    }
+    function SSJ2() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(100);
+        let resultado = n2 * n1;
+        div_exibir.innerHTML = `Após se transformar no Super Saiyajin 2, O Poder dele se torna ${resultado.toFixed(2)}`;
+    }
+    function SSJ3() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(200);
+        let resultado = n2 * n1;
+        div_exibir.innerHTML = `Após se transformar no Super Saiyajin 3, O Poder dele se torna ${resultado.toFixed(2)}`;
+    }
+</script>
+
+</html>

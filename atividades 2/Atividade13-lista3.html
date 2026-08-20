@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP</title>
+</head>
+
+<body>
+    qual o valor da passagem <br><input type="text" id="ipt_n1" /><br>
+    contando ida e volta, quantas viagens se faz por mês? <br><input type="text" id="ipt_n2" /><br>
+    qual A distancia de sua casa ao trabalho em KMs <br><input type="text" id="ipt_n3" /><br>
+    <button onclick="VT()">Calcular VT</button><br>
+
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function VT() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let n3 = Number(ipt_n3.value);
+        let resultado = ((n2 / 10) * n3 * 0.75) + (n2 - n2 / 10) * n1;
+        div_exibir.innerHTML = `você vai gastar  R$${resultado} por mês com transporte`;
+    }
+</script>
+
+</html>

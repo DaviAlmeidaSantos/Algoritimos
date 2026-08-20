@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <input type="text" id="ipt_n1" />
+    <input type="text" id="ipt_n2" />
+
+    <button onclick="multiplicar()">*</button>
+    <button onclick="dividir()">/</button>
+    <button onclick="sub()">-</button>
+    <button onclick="soma()">+</button>
+
+    <div id="div_exibir"></div>
+</body>
+
+<script>
+    function multiplicar() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 * n2;
+        div_exibir.innerHTML = `O produto entre ${n1} e ${n2} é: ${resultado}`;
+    }
+
+    function dividir() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 / n2;
+        div_exibir.innerHTML = `A razão entre ${n1} e ${n2} é: ${resultado}`;
+    }
+
+    function sub() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 - n2;
+        div_exibir.innerHTML = `A subtração entre ${n1} e ${n2} é: ${resultado}`;
+    }
+
+    function soma() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n1 + n2;
+        div_exibir.innerHTML = `A soma entre ${n1} e ${n2} é: ${resultado}`;
+    }
+</script>
+
+</html>

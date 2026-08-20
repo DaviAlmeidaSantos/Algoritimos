@@ -1,0 +1,31 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLa plata</title>
+</head>
+
+<body>
+    Atualizar saldo bancario<br>
+    <button onclick="Receber()">Receber 100 do banco</button><br>
+    <button onclick="Pagar()">Pagar 50 do banco</button><br>
+    <div id="div_msg"></div>
+
+</body>
+
+<script>
+    let ax_total = 0;
+
+    function Receber() {
+        ax_total = ax_total - 100;
+        div_msg.innerHTML = `Transferência de R$100 recebida! Saldo atual: R$ ${ax_total}`;
+    }
+    function Pagar() {
+        ax_total = ax_total + 50;
+        div_msg.innerHTML = `Pagamento de R$50 efetuado! Saldo atual: R$ ${ax_total}`;
+    }
+
+</script>
+
+</html>

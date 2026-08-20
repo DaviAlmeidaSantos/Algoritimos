@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP</title>
+</head>
+
+<body>
+    qual o valor da passagem <br><input type="text" id="ipt_n1" /><br>
+    contando ida e volta, quantas viagens se faz por mês? <br><input type="text" id="ipt_n2" /><br>
+    <button onclick="economizar()">calcular desconto</button><br>
+
+    <div id="div_exibir"></div>
+</body>
+<script>
+    function economizar() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let resultado = n2 * n1 / 2;
+        div_exibir.innerHTML = `você vai economizar R$${resultado}`;
+    }
+</script>
+
+</html>
