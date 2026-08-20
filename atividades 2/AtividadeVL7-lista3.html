@@ -17,9 +17,9 @@
 </body>
 <script>
         function pagar() {
-            let pessoas = Number(ipt_n1.value);
-            let preco = Number(ipt_n2.value);
-            let resultado = n2 / (n1 * 1.1);
+            let pessoas = Number(ipt_pessoas.value);
+            let preco = Number(ipt_preco.value);
+            let resultado = pessoas / (preco * 1.1);
             div_exibir.innerHTML = `  Cada amigo vai colaborar com R$ ${resultado} para a pizza de ${ipt_sabor.value}.`;
         }
     </script>
