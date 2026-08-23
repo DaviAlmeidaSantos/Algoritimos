@@ -4,55 +4,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece na aba do navegador -->
     <title>Controle de TVM</title>
 </head>
 
 <body>
+
+    <!--
+        Campo onde o usuário informa a quantidade de dias
+        que a operação ficou funcionando.
+    -->
     Quantidade de dias em operação:
     <input type="text" id="ipt_dias"><br>
 
+    <!--
+        Quando esse botão for clicado, a função ProcessarDias()
+        será executada.
+    -->
     <button onclick="ProcessarDias()">Processar DIAS</button><br>
+
+    <!--
+        Quando esse botão for clicado, a função StopOperacao()
+        será executada.
+    -->
     <button onclick="StopOperacao()">Stop Operação</button><br>
+
+    <!--
+        Quando esse botão for clicado, a função Reiniciar()
+        será executada.
+    -->
     <button onclick="Reiniciar()">Reiniciar Processo</button><br>
 
+    <!--
+        Essa div será utilizada pelo JavaScript para mostrar
+        os resultados das operações na tela.
+    -->
     <div id="div_exibir"></div>
+
 </body>
 
 <script>
+
+    /*
+        ax_tvm é a variável que guarda o valor atual do TVM.
+
+        "let" cria uma variável que pode ter seu valor alterado
+        durante a execução do programa.
+
+        O TVM começa com 1000 horas.
+
+        Essa variável funciona como uma variável acumuladora,
+        porque seu valor continua existindo depois que uma função
+        termina e pode ser utilizado pela próxima função.
+    */
     let ax_tvm = 1000;
 
+
+    /*
+        ==========================================================
+        FUNÇÃO ProcessarDias()
+        ==========================================================
+
+        Essa função é executada quando o usuário clica no botão
+        "Processar DIAS".
+
+        Sua função é:
+        1. Pegar a quantidade de dias digitada.
+        2. Transformar os dias em horas.
+        3. Descontar essas horas do TVM.
+        4. Mostrar o resultado na tela.
+    */
     function ProcessarDias() {
+
+
+        /*
+            ipt_dias é o campo de entrada do HTML:
+
+            <input type="text" id="ipt_dias">
+
+            O ".value" pega o conteúdo que o usuário digitou.
+
+            Como o input é do tipo "text", o valor inicialmente
+            é tratado como texto.
+
+            Por exemplo:
+
+            Se o usuário digitar 5:
+
+            ipt_dias.value = "5"
+
+            A função Number() transforma esse texto em número:
+
+            Number("5") = 5
+
+            Portanto:
+
+            dias = 5
+        */
         let dias = Number(ipt_dias.value);
 
+
+        /*
+            Antes de modificar o TVM, guardamos seu valor atual
+            dentro de outra variável.
+
+            Isso é necessário para conseguirmos mostrar na tela
+            qual era o TVM antes da operação.
+
+            Exemplo:
+
+            ax_tvm = 1000
+
+            Depois dessa linha:
+
+            tvm_anterior = 1000
+            ax_tvm = 1000
+
+            Os dois possuem o mesmo valor, mas são variáveis
+            diferentes.
+        */
         let tvm_anterior = ax_tvm;
+
+
+        /*
+            Um dia possui 24 horas.
+
+            Portanto, multiplicamos a quantidade de dias por 24
+            para descobrir quantas horas devem ser descontadas.
+
+            Exemplo:
+
+            dias = 5
+
+            horas = 5 * 24
+
+            horas = 120
+        */
         let horas = dias * 24;
 
+
+        /*
+            Agora fazemos a atualização do TVM.
+
+            Pegamos o valor atual do TVM e descontamos as horas
+            de operação.
+
+            Exemplo:
+
+            ax_tvm = 1000
+            horas = 120
+
+            ax_tvm = 1000 - 120
+
+            Resultado:
+
+            ax_tvm = 880
+
+            O novo valor fica armazenado dentro de ax_tvm.
+
+            Por isso, se outra função for executada depois,
+            ela utilizará o valor atualizado de 880.
+        */
         ax_tvm = ax_tvm - horas;
 
+
+        /*
+            innerHTML permite alterar o conteúdo da div.
+
+            O "+=" é utilizado para ADICIONAR o novo texto ao
+            conteúdo que já estava na div.
+
+            Se usássemos apenas "=":
+
+            div_exibir.innerHTML =
+
+            o conteúdo anterior seria substituído.
+
+            Como usamos "+=", cada nova operação é adicionada
+            abaixo da anterior.
+
+            As crases (`) permitem utilizar uma template string.
+
+            Dentro dela podemos colocar variáveis usando:
+
+            ${variavel}
+
+            Exemplo:
+
+            ${tvm_anterior}
+            ${dias}
+            ${ax_tvm}
+
+            Se:
+
+            tvm_anterior = 1000
+            dias = 5
+            ax_tvm = 880
+
+            O resultado será:
+
+            O TVM anterior era de 1000 horas e após 5 dias
+            de operação o TVM passou para 880 horas.
+        */
         div_exibir.innerHTML += `
             O TVM anterior era de ${tvm_anterior} horas e após ${dias} dias de operação o TVM passou para ${ax_tvm} horas<br><br>
         `;
     }
 
+
+    /*
+        ==========================================================
+        FUNÇÃO StopOperacao()
+        ==========================================================
+
+        Essa função é executada quando o usuário clica no botão
+        "Stop Operação".
+
+        Ela desconta exatamente 100 horas do TVM atual.
+    */
     function StopOperacao() {
+
+
+        /*
+            Primeiro guardamos o valor atual do TVM.
+
+            Isso permite mostrar posteriormente qual era o valor
+            antes do Stop.
+
+            Exemplo:
+
+            ax_tvm = 880
+
+            Depois:
+
+            tvm_anterior = 880
+        */
         let tvm_anterior = ax_tvm;
 
+
+        /*
+            Agora descontamos 100 horas do TVM.
+
+            Exemplo:
+
+            ax_tvm = 880
+
+            ax_tvm = 880 - 100
+
+            Resultado:
+
+            ax_tvm = 780
+        */
         ax_tvm = ax_tvm - 100;
 
+
+        /*
+            Mostramos o resultado na tela.
+
+            Novamente usamos "+=" para manter as mensagens
+            anteriores.
+
+            ${tvm_anterior} mostra o valor antes do Stop.
+
+            ${ax_tvm} mostra o valor depois do Stop.
+
+            <br><br> serve para quebrar a linha e deixar
+            um espaço entre as mensagens.
+        */
         div_exibir.innerHTML += `
             O TVM anterior era de ${tvm_anterior} horas, após o Stop de operação o TVM passou para ${ax_tvm} horas<br><br>
         `;
     }
 
+
+    /*
+        ==========================================================
+        FUNÇÃO Reiniciar()
+        ==========================================================
+
+        Essa função é executada quando o usuário clica no botão
+        "Reiniciar Processo".
+
+        Ela faz o TVM voltar para seu valor inicial:
+
+        1000 horas.
+    */
     function Reiniciar() {
+
+
+        /*
+            Guardamos o valor atual antes de reiniciar.
+
+            Isso permite informar ao usuário quanto ainda havia
+            de TVM antes do processo ser reiniciado.
+
+            Exemplo:
+
+            ax_tvm = 780
+
+            Então:
+
+            tvm_anterior = 780
+        */
         let tvm_anterior = ax_tvm;
 
+
+        /*
+            Aqui o TVM recebe novamente o valor inicial.
+
+            Não importa qual era o valor anterior.
+
+            Exemplos:
+
+            780 -> 1000
+            500 -> 1000
+            200 -> 1000
+
+            O processo sempre volta para 1000 horas.
+        */
         ax_tvm = 1000;
 
+
+        /*
+            Aqui utilizamos "=" em vez de "+=".
+
+            Isso significa que o conteúdo anterior da div será
+            SUBSTITUÍDO pela mensagem de reinício.
+
+            Portanto, as mensagens anteriores deixam de aparecer.
+
+            ${tvm_anterior} mostra quanto havia antes do reinício.
+
+            O número 1000 representa o novo valor do TVM.
+        */
         div_exibir.innerHTML = `
             Ainda existia ${tvm_anterior} horas, com o reinicio do processo, o TVM passou para 1000 horas.
         `;
     }
+
 </script>
 
 </html>
