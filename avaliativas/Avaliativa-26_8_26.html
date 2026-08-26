@@ -1,0 +1,53 @@
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>merdaco</title>
+</head>
+
+<body>
+    Distancia percorrida em KMs <br><input type="text" id="ipt_kms"><br>
+    velocidade média do carro, em quilômetros por hora <br><input type="text" id="ipt_velocidade"><br>
+    <button onclick="rodar()">Simular</button><br>
+
+    <div id="div_msg"></div>
+</body>
+<script>
+    let cbt = 25
+    function rodar() {
+        let kms = Number(ipt_kms.value);
+        let vel = Number(ipt_velocidade.value);
+        let tmp = kms / vel
+        let cbg = kms / 10
+        let cgp = cbg * 4
+        let cbr = cbt - cbg
+        let crp = cbr * 4
+
+        div_msg.innerHTML = `
+        Ao percorrer ${kms} km, 
+        em velocidade média de ${vel} km/h, 
+        a viagem durou ${tmp} horas. 
+        Ao todo, foram gastos ${cbg}
+        litros de combustível ${cgp}%. 
+        Restam ${cbr} 
+        litros de combustível ${crp}%.
+`
+        if (0 < crp < 30) {
+            div_msg.innerHTML = `"É melhor parar para reabastecer!`
+        }
+        if (crp == 0) {
+            div_msg.innerHTML += `você pode até chegar, mas no limite do limite`
+        }
+        if (crp < 0) {
+            div_msg.innerHTML += `Sem reabastecer, você não chega nem <b style="background-color: black;">[       ]</b>`
+        } else {
+            let preco = chocolates * 3;
+            div_msg.innerHTML = `você vai pagar R$ ${preco}`
+        }
+    }
+</script>
+
+</html>
