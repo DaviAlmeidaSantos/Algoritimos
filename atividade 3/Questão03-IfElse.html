@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de notas</title>
+</head>
+
+<body>
+    nota 1<input type="text" id="ipt_N1"><br>
+    nota 2<input type="text" id="ipt_N2"><br>
+    nota 3<input type="text" id="ipt_N3"><br>
+    <button onclick="Media()">Analisar desempenho</button>
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    function Media() {
+        let N1 = Number(ipt_N1.value);
+        let N2 = Number(ipt_N2.value);
+        let N3 = Number(ipt_N3.value);
+        let Media = (N1 + N2 + N3) / 3;
+        div_msg.innerHTML = `Sua média foi de ${Media} `
+        if (Media >= 9.4) {
+            div_msg.innerHTML += `Então parabéns, você é fora de série!`;
+        }
+    }
+
+</script>
+
+</html>
+
+<!--
+3. Controle de notas 
+
+Paty é muito estudiosa e sua meta é sempre ser uma aluna fora de série. Na faculdade onde estuda, os "fora de série" são os alunos com média acima de 9,4. Portanto, para ajudá-la, crie um programa o qual:  
+
+a) Pergunte o valor de 3 notas  
+
+b) Ao clicar num botão "Analisar desempenho", calcule a média entre as notas e exiba na tela a frase "Sua média foi de X", onde X é a média calculada  
+
+c) Somente caso a média for acima de 9,4 exibir também a frase "Parabéns, você é fora de série!"  

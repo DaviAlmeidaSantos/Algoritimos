@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de notas 2</title>
+</head>
+
+<body>
+    nota 1<input type="text" id="ipt_N1"><br>
+    nota 2<input type="text" id="ipt_N2"><br>
+    <button onclick="Media()">verificar situação</button>
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    function Media() {
+        let N1 = Number(ipt_N1.value);
+        let N2 = Number(ipt_N2.value);
+        let Media = (N1 + N2) / 2;
+        div_msg.innerHTML = `Sua média foi de ${Media} `
+        if (Media >= 6) {
+            div_msg.innerHTML += `Então parabéns, você foi aprovado!`;
+        } else {
+            div_msg.innerHTML += `Tente outra vez...`;
+        }
+    }
+
+</script>
+
+</html>

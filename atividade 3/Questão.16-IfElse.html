@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de notas 2</title>
+</head>
+
+<body>
+    Quantidade de homens<input type="text" id="ipt_N1"><br>
+    Quantidade de mulheres<input type="text" id="ipt_N2"><br>
+    <button onclick="Media()">Ligar elevador</button>
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    function Media() {
+        let N1 = Number(ipt_N1.value);
+        let N2 = Number(ipt_N2.value);
+        let peso = N1 * 90 + N2 * 70;
+        if (peso >= 500) {
+            let perder = peso - 500
+            div_msg.innerHTML = `<p style="color:red;">Alguém precisa descer. Precisa perder ${perder}kg para mover o elevador</p>`;
+        } else {
+            div_msg.innerHTML = `<p style="color:green;">Elevador vai se mover, pois está com ${peso}kg </p>`;
+        }
+    }
+
+</script>
+
+</html>

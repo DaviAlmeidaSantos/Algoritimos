@@ -1,0 +1,43 @@
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pizzzzzzzzzza 3</title>
+</head>
+
+<body>
+    Quantas pessoas vão pagar <br><input type="text" id="ipt_pessoas"><br>
+    Quanto custa a pizza <br><input type="text" id="ipt_preco"><br>
+    <button onclick="pagar()">Ver valor por amigo</button><br>
+
+    <div id="div_msg"></div>
+</body>
+<script>
+    function pagar() {
+        let pessoas = Number(ipt_pessoas.value);
+        let preco = Number(ipt_preco.value);
+        let resultado = preco / pessoas;
+        div_msg.innerHTML = `Cada amigo vai pagar R$ ${resultado} pela pizza `
+        if (resultado >= 20) {
+            div_msg.innerHTML += `<p style="color:red;"><i><b>Deu ruim! Pizza muito cara!</b></i></p>`;
+        }
+    }
+
+</script>
+
+</html>
+<!--
+ Conta de luz
+
+Na cidade de Algoritmolândia a luz custa R$ 0,85 por KWh. Crie um programa que:  
+
+a) Solicite a quantidade de KWh consumida no mês 
+
+b) Ao clicar em "Calcular conta de luz", calcule o valor da conta no mês 
+
+c) Dê um desconto de 10% somente se a quantidade for menor que 100 KWh 
+
+d) Exiba um alert com o valor da conta a ser paga. 
