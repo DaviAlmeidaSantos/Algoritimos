@@ -27,13 +27,13 @@
         let vel = Number(ipt_velocidade.value);
         let tmp = kms / vel;
         let cbg = kms / 10;
-        let cgp = (cbg / 25) * 100;
+        let cgp = cbg * 4;
         let cbr = cbt - cbg;
-        let crp = (cbr / 25) * 100; 
+        let crp = cbr * 4; 
         
         cbt = cbr;
-        let mensagem = `Ao percorrer ${kms} km, em velocidade média de ${vel} km/h, a viagem durou ${tmp} horas. ` +
-                       `Ao todo, foram gastos ${cbg} litros de combustível (${cgp}%). ` +
+        let mensagem = `Ao percorrer ${kms} km, em velocidade média de ${vel} km/h, a viagem durou ${tmp} horas. <br>` +
+                       `Ao todo, foram gastos ${cbg} litros de combustível (${cgp}%). <br>` +
                        `Restam ${cbr} litros de combustível (${crp}%).<br>`;
         if (cbt >= 7.5) {
             mensagem += "Continue a rodar!";
